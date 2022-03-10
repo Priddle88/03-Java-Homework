@@ -44,9 +44,11 @@ function generatePassword() {
 
         if (lowerCase) {
           newPassword.push(sortedL[i]);
-        } else if (upperCase) {
+        }
+        if (upperCase) {
           newPassword.push(sortedU[i]);
         }
+
     
       };
     };
