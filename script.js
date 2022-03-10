@@ -42,7 +42,10 @@ function generatePassword() {
     var numbers = window.confirm("Would you like to add numbers?");
     var specialChar = window.confirm("Would you like to add special characters?");
 
-    
+    if (!lowerCase && !upperCase && !numbers && !specialChar) {
+      var tryAgain = window.alert("Try Again. Select Values from the following criteria");
+      generatePassword();
+    };
 
     var conditions = function(){
       for (i = 0; i < textLength; i++) {
@@ -60,5 +63,5 @@ function generatePassword() {
     var finalPassword = finalP.join('');
     console.log(finalPassword);
     return finalPassword;
-    return;
+    //return;
 };
