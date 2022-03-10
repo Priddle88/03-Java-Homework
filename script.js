@@ -39,7 +39,7 @@ function generatePassword() {
     var specialChar = window.confirm("Would you like to add special characters?");
 
     
-
+    //function to see what conditons the user would like
     var conditions = function(){
       for (i = 0; i < textLength; i++) {
         if (lowerCase) newPassword.push(letterL[Math.floor(Math.random() * letterL.length)]);
@@ -51,10 +51,13 @@ function generatePassword() {
       finalP.push(newPassword[i]);
       };
     };
-
+    
+    //running the conditions function
     conditions();
+    //removes the commas from the array
     var finalPassword = finalP.join('');
-    console.log(finalPassword);
+    //console.log(finalPassword);
+    //returns finalPassword as password to enter the value into the space above the button
     return finalPassword;
     return;
 };
