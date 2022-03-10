@@ -23,7 +23,9 @@ generateBtn.addEventListener("click", writePassword);
     var letterU = passULetters.split(" ");
     var sortedL = letterL.sort((a, b) => 0.5 - Math.random());
     var sortedU = letterU.sort((a, b) => 0.5 - Math.random());
+    var specChar = ["@","#","$","%","&","*"];
     var newPassword = [];
+    const finalP = [];
   
 //function to generate the password with a set criteria
 function generatePassword() {
@@ -39,22 +41,20 @@ function generatePassword() {
     
 
     var conditions = function(){
-      
       for (i = 0; i < textLength; i++) {
-
-        if (lowerCase) {
-          newPassword.push(sortedL[i]);
-        }
-        if (upperCase) {
-          newPassword.push(sortedU[i]);
-        }
-
-    
+        if (lowerCase) newPassword.push(letterL[Math.floor(Math.random() * letterL.length)]);
+        if (upperCase) newPassword.push(letterU[Math.floor(Math.random() * letterU.length)]);
+        if (numbers) newPassword.push(Math.floor(Math.random()*10));
+        if (specialChar) newPassword.push(specChar[i]);
+      };
+      for (i = 0; i < textLength; i++){
+      finalP.push(newPassword[i]);
       };
     };
 
     conditions();
-    console.log(newPassword);
-    return password;
+    var finalPassword = finalP.join('');
+    console.log(finalPassword);
+    return finalPassword;
     return;
 };
