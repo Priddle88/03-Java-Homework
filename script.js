@@ -46,7 +46,7 @@ function generatePassword() {
       var tryAgain = window.alert("Try Again. Select Values from the following criteria");
       generatePassword();
     };
-
+    //Generates a password based on the criteria above
     var conditions = function(){
       for (i = 0; i < textLength; i++) {
         if (lowerCase) newPassword.push(letterL[Math.floor(Math.random() * letterL.length)]);
@@ -58,7 +58,7 @@ function generatePassword() {
       finalP.push(newPassword[i]);
       };
     };
-    
+    //calls the conditions function and joins the finalP array to a string without commas
     conditions();
     var finalPassword = finalP.join('');
     console.log(finalPassword);
