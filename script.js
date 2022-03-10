@@ -26,20 +26,24 @@ generateBtn.addEventListener("click", writePassword);
     var specChar = ["@","#","$","%","&","*"];
     var newPassword = [];
     const finalP = [];
+    var textLength;
   
 //function to generate the password with a set criteria
 function generatePassword() {
     //length of password
-    var textLength = window.prompt("How many characters would you like for your new password? (8 - 128)");
-    if (textLength < 8 || textLength > 128) generatePassword();
-
+    txtLength();
+    function txtLength () {
+    textLength = window.prompt("How many characters would you like for your new password? (8 - 128)");
+    if (textLength < 8 || textLength > 128) txtLength();
+    };
+  
     var lowerCase = window.confirm("Would you like to have lower case letters?");
     var upperCase = window.confirm("Would you like to have upper case letters?");
     var numbers = window.confirm("Would you like to add numbers?");
     var specialChar = window.confirm("Would you like to add special characters?");
 
     
-    //function to see what conditons the user would like
+
     var conditions = function(){
       for (i = 0; i < textLength; i++) {
         if (lowerCase) newPassword.push(letterL[Math.floor(Math.random() * letterL.length)]);
@@ -52,12 +56,9 @@ function generatePassword() {
       };
     };
     
-    //running the conditions function
     conditions();
-    //removes the commas from the array
     var finalPassword = finalP.join('');
-    //console.log(finalPassword);
-    //returns finalPassword as password to enter the value into the space above the button
+    console.log(finalPassword);
     return finalPassword;
     return;
 };
